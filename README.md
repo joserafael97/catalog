@@ -1,1 +1,2 @@
-# catalog
+# Catálogo de produtos
+
