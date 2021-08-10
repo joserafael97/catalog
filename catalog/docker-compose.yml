@@ -1,0 +1,51 @@
+version: "3"
+
+services:
+   postgres-catalog:
+      container_name: postgres-catalog
+      image: postgres:9.6.16
+      restart: always
+      command: -p 5441
+      ports:
+         - 5441:5441
+      environment:
+         - POSTGRES_PASSWORD=4b28121d3c291f5c2b561ddc3e999cf589ddbe6472e202edf058106d069fc74e
+         - POSTGRES_USER=cataloguser87%w2
+         - POSTGRES_DB=catalog
+      expose:
+         - 5441
+      networks:
+         - catalog-production-network
+
+   catalog:
+      container_name: catalog
+      build:
+         args:
+            - PORT=9999
+            - SPRING_PROFILES_ACTIVE=prod
+            - MEMORY_USE=
+         dockerfile: ./Dockerfile
+         context: ./catalog-api
+      image: catalog
+      restart: always
+      environment:
+         - POSTGRESQL_HOST=postgres-catalog
+         - SPRING_DATASOURCE_USERNAME=cataloguser87%w2
+         - SPRING_DATASOURCE_PASSWORD=4b28121d3c291f5c2b561ddc3e999cf589ddbe6472e202edf058106d069fc74e
+         - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-catalog:5441/catalog
+         - WAIT_HOSTS=postgres-catalog:5441
+         - SPRING_PROFILES_ACTIVE=prod
+         - PORT=9999
+      ports:
+         - "9999:9999"
+      expose:
+         - 9999
+      networks:
+         - catalog-production-network
+      depends_on:
+         - postgres-catalog
+
+networks:
+   catalog-production-network:
+      driver: bridge
+
