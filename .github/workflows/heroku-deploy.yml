@@ -14,10 +14,10 @@ jobs:
         java-version: 11
     - name: Build with Maven common
       working-directory: ./common/
-      run: mvn -B package --file pom.xml
+      run: mvn -B package  -Dmaven.test.skip=true --file pom.xml
     - name: Build with Maven catalog
       working-directory: ./catalog/
-      run: mvn -B package --file pom.xml
+      run: mvn -B package  -Dmaven.test.skip=true --file pom.xml
     - name: Heroku Container Registry login
       env: 
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
