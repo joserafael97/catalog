@@ -1,6 +1,6 @@
 # Catálogo de produtos
 
-Este projeto está disponível no [catalog-app-sp.herokuapp.com](https://catalog-app-sp.herokuapp.com) e a documentação via Swagger está disponível em [catalog-app-sp.herokuapp.com/swagger-ui/](catalog-app-sp.herokuapp.com/swagger-ui/).
+Este projeto está disponível no [catalog-app-sp.herokuapp.com](https://catalog-app-sp.herokuapp.com) e a documentação via Swagger está disponível em [catalog-app-sp.herokuapp.com/swagger-ui/](https://catalog-app-sp.herokuapp.com/swagger-ui/).
 
 O Deploy foi feito via Github Actions [heroku-deploy](https://github.com/joserafael97/catalog/tree/heroku-deploy/.github/workflows) com base na branch [heroku-deploy](https://github.com/joserafael97/catalog/tree/heroku-deploy)
 
