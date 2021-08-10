@@ -51,6 +51,13 @@ Basicamente o que difere de um perfil de execução para outro é a conexão com
 ```
 java -jar <<arquivojar> -Dspring.profiles.active=<<perfil>>
 ```
+
+ou via Maven:
+
+```
+mvn spring-boot:run -Drun.profiles=<<perfil>>
+```
+
 Onde o perfil deve ser um dos três mencionados no começo dessa seção. É importante frisar, que caso o parâmetro -Dspring.profiles.active seja informado, o perfil padrão executado será o dev.
 
 ### O perfil de execução dev
