@@ -12,8 +12,11 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 11
-    - name: Build with Maven
-      working-directory: ./catalog/catalog-api
+    - name: Build with Maven common
+      working-directory: ./catalog/common
+      run: mvn -B package --file pom.xml
+    - name: Build with Maven catalog
+      working-directory: ./catalog
       run: mvn -B package --file pom.xml
     - name: Heroku Container Registry login
       env: 
