@@ -13,22 +13,22 @@ jobs:
       with:
         java-version: 11
     - name: Build with Maven common
-      working-directory: ./catalog/common
+      working-directory: ./catalog/common/
       run: mvn -B package --file pom.xml
     - name: Build with Maven catalog
-      working-directory: ./catalog
+      working-directory: ./catalog/catalog/
       run: mvn -B package --file pom.xml
     - name: Heroku Container Registry login
       env: 
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: heroku container:login
     - name: Build and push
-      working-directory: ./catalog/catalog-api
+      working-directory: .catalog/catalog/catalog-api/
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: heroku container:push -a ${{ secrets.HEROKU_APP_NAME }} web 
     - name: Release
-      working-directory: ./catalog/catalog-api
+      working-directory: ./catalog/catalog/catalog-api/
       env:
        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: heroku container:release -a ${{ secrets.HEROKU_APP_NAME }} web 
