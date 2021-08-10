@@ -4,9 +4,9 @@ Este projeto está disponível no [catalog-app-sp.herokuapp.com](https://catalog
 
 O Deploy foi feito via Github Actions [heroku-deploy](https://github.com/joserafael97/catalog/tree/heroku-deploy/.github/workflows) com base na branch [heroku-deploy](https://github.com/joserafael97/catalog/tree/heroku-deploy)
 
-##Módulos do Projeto
+## Módulos do Projeto
 
-##1. Common
+## 1. Common
 Módulo principal que contém códigos reaproveitáveis em demais módulos do projeto.
 
 ### 1.1 infrastructure
@@ -47,9 +47,9 @@ O módulo Catalog server possui três perfis de execução:
 - test: Para execução em ambiente de testes.
 - prod: Para execução em ambiente de produção.
 
-Basicamente o que difere de um peril de execução para outro é a conexão com banco de dados. Para selecionar o perfil durante a execução do sistema, o comando abaixo deve ser executado:
+Basicamente o que difere de um perfil de execução para outro é a conexão com banco de dados. Para selecionar o perfil durante a execução do sistema, o comando abaixo deve ser executado:
 ```
-java -jar -Dspring.profiles.active=<<perfil>>
+java -jar <<arquivojar> -Dspring.profiles.active=<<perfil>>
 ```
 Onde o perfil deve ser um dos três mencionados no começo dessa seção. É importante frisar, que caso o parâmetro -Dspring.profiles.active seja informado, o perfil padrão executado será o dev.
 
@@ -89,7 +89,7 @@ schema: public
 
 Observe que para o perfil de produção, são utilizadas variáveis de ambiente para configuração da conexão com banco de dados. Caso as variáveis não sejam informadas, os valores padrão serão os que estão entre parênteses. Para alterações nessas configurações o arquivo **testrec-server/src/main/resources/application-prod.properties** deve ser alterado.
 
-###Execução via Docker
+## Execução via Docker
 
 Com docker em execução dentro do diretório no módulo principal contendo **docker-compose.yaml** basta executar o seguinte comando:
 
