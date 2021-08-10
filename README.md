@@ -33,7 +33,7 @@ O projeto TestRec server utiliza os seguintes componentes:
 
 - Spring boot 2.5.3
 
-O projeto Catalog utiliza o [apache maven](https://maven.apache.org/) como ogerenciador de pacotes. Assim, para gerar o pacote de desenvolvimento é necessário executar o seguinte comando:
+O projeto Catalog utiliza o [apache maven](https://maven.apache.org/) como gerenciador de pacotes. Assim, para gerar o pacote de desenvolvimento é necessário executar o seguinte comando:
 
 ```
 mvn clean package
